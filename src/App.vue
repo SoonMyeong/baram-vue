@@ -3,34 +3,35 @@
   <html>
     <body>
       <div id ="app">
-        <Search :list="items" filterby="name"/>
+        <!-- <Search :list="items" filterby="name"/> -->
           <!-- <div class="item-wrap">
             <ItemInfo/>
           </div> -->
+          <router-view/>
       </div>
     </body>
   </html>
 </template>
 
 <script>
-import items from '@/assets/items';
-import Search from '@/components/Search';
+// import items from '@/assets/items';
+// import Search from '@/components/Search';
 // import ItemInfo from '@/components/ItemInfo';
 
 export default {
   name: 'App',
-  mounted(){
-    this.items = items;
-  },
+  // mounted(){
+  //   this.items = items;
+  // },
   data(){
     return{
-      items: []
+      // items: []
     }
-  },
-  components: {
-    Search
-    //  ItemInfo
   }
+  // components: {
+  //   Search
+  //   //  ItemInfo
+  // }
 };
 </script>
 <style scoped>

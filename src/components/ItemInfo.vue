@@ -6,7 +6,7 @@
             <center>
                 <img src="https://picsum.photos/600/300/?image=25" alt="">
             </center>
-            <p><span>[보물]</span>진'숲의권속신발</p>
+            <p><span>[보물]</span>{{$route.query.name}}</p>
             <center>
                 <b-form-select v-model="selected" :options="options" @change="onChange($event)" class="count"></b-form-select>
             </center>
