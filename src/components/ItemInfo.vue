@@ -6,7 +6,11 @@
             <center>
                 <img src="https://picsum.photos/600/300/?image=25" alt="">
             </center>
-            <p><span>[보물]</span>{{$route.query.name}}</p>
+            <p>
+                <span v-if="rank == '희귀'" style="color:lightblue">[{{rank}}]</span>
+                <span v-else-if="rank == '보물'" style="color:purple">[{{rank}}]</span>
+                 {{name}}
+            </p>
             <center>
                 <b-form-select v-model="selected" :options="options" @change="onChange($event)" class="count"></b-form-select>
             </center>
@@ -22,40 +26,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="td-name">무장도</td>
-                        <td>83</td>
+                        <td class="td-name">정보 미구현</td>
+                        <td></td>
                         <td class="td-arrow">-></td>
-                        <td class="td-level-up">92</td>
-                    </tr>
-                    <tr>
-                        <td class="td-name">이동속도</td>
-                        <td>83</td>
-                        <td class="td-arrow">-></td>
-                        <td class="td-level-up">92</td>
-                    </tr>
-                    <tr>
-                        <td class="td-name">체력증가</td>
-                        <td>83</td>
-                        <td class="td-arrow">-></td>
-                        <td class="td-level-up">92</td>
-                    </tr>
-                     <tr>
-                        <td class="td-name">체력재생</td>
-                        <td>83</td>
-                        <td class="td-arrow">-></td>
-                        <td class="td-level-up">92</td>
-                    </tr>
-                     <tr>
-                        <td class="td-name">무장도</td>
-                        <td>83</td>
-                        <td class="td-arrow">-></td>
-                        <td class="td-level-up">92</td>
-                    </tr>
-                     <tr>
-                        <td class="td-name">피해저항</td>
-                        <td>83</td>
-                        <td class="td-arrow">-></td>
-                        <td class="td-level-up">92</td>
+                        <td class="td-level-up"></td>
                     </tr>
                 </tbody>
             </table>
@@ -99,6 +73,10 @@
 </template>
 <script>
 export default {
+     props:{
+      name: String,
+      rank: String
+     },
      methods: {
          onChange(event) {
                if(event==0 ||event==1 || event==2){
@@ -127,7 +105,7 @@ export default {
          }
      },
      data() {
-      return {
+      return {   
         upgradePercent: 100,
         upgradeAdd: '0',  
         selected: 0,
@@ -152,7 +130,6 @@ export default {
 </script>
 
 <style scoped>
- .wrap2{margin-top: 10px;}
  .wrap2 .upgrade-title{background: linear-gradient(to bottom, #E09B58,#864C1C); text-align: center; color: white;}
  .wrap2 .title2{width:100%; margin: 0 auto; margin-bottom: 10px; background-color:#FFA500;}
  .wrap2 .count{width:100px; height: 40px; text-align: center;}
@@ -171,7 +148,6 @@ export default {
  .wrap2 .table2 .td-number{text-align: center;}
 
  .wrap2 img{margin:0 auto; padding:1px 1px; width: 100px; height:100px; border: 5px solid purple;}
- .wrap2 span{color: purple;}
  .wrap2 p{margin:0 auto; padding:5px 5px; text-align: center; color: white;}
  .wrap2 button{margin-top:5px; width:200px;}
 </style>
